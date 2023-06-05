@@ -1,0 +1,48 @@
+﻿@model List<schoolStudent.ModelDataBase.Student>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="d-flex bd-highlight">
+    <div class="d-flex flex-row-reverse bd-highlight">
+        <div class="p-2 bd-highlight"><a href="~/Student/nuevoEstudiante" class="btn btn-success btn-sm">[Nuevo]</a></div>
+    </div>
+</div>
+
+<div class="row">
+    <table class="table table-sm table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col" width="5%">#</th>
+                <th scope="col" width="10%">Codigo</th>
+                <th scope="col" width="35%">Nombre del Estudiante</th>
+                <th scope="col" width="15%">Fecha Nacimiento</th>
+                <th scope="col" width="10%">Genero</th>
+                <th scope="col" width="15%">Grado</th>
+                <th scope="col" width="10%" colspan="2">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = 1;
+
+                foreach (var dEstudiante in Model)
+                {
+                        <tr>
+                            <td>@i</td>
+                            <td>@dEstudiante.StudentCode</td>
+                            <td>@dEstudiante.NameStudent</td>
+                            <td>@dEstudiante.BirthDate.ToString("dd-MM-yyyy")</td>
+                            <td>@dEstudiante.Gender</td>
+                            <td>@dEstudiante.GradeId</td>
+                            <td><a class="btn btn-primary btn-sm" href="@Url.Action("editarEstudiante","Student", new { Id = dEstudiante.Id })">[Editar]</a></td>
+                            <td><a class="btn btn-danger btn-sm" href="@Url.Action("eliminarEstudiante","Student", new { Id = dEstudiante.Id })">[Eliminar]</a></td>
+                        </tr>
+                    i++;
+                }
+            }
+        </tbody>
+    </table>
+</div>

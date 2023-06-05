@@ -1,0 +1,68 @@
+﻿@model schoolStudent.Models.studentModel
+@{
+    ViewBag.Title = "nuevoEstudiante";
+}
+
+<h2>nuevoEstudiante</h2>
+
+<div style="height: 2rem;"></div>
+<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm("nuevoEstudiante", "Student", FormMethod.Post))
+{
+    <div class="container">
+        <div class="row">
+            <div class="form-group col-lg-12">
+                @Html.LabelFor(d => d.StudentCode)
+                @Html.TextBoxFor(d => d.StudentCode, "", new { @class = "form-control", @style = "text-transform:uppercase" })
+                @Html.ValidationMessageFor(d => d.StudentCode, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-lg-12">
+                @Html.LabelFor(d => d.NameStudent)
+                @Html.TextBoxFor(d => d.NameStudent, "", new { @class = "form-control", @style = "text-transform:uppercase" })
+                @Html.ValidationMessageFor(d => d.NameStudent, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-lg-12">
+                @Html.LabelFor(d => d.BirthDate)
+                @Html.TextBoxFor(d => d.BirthDate, "", new { @id = "datepickertxt", @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.BirthDate, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-lg-12">
+                @Html.LabelFor(d => d.Gender)
+                @Html.TextBoxFor(d => d.Gender, "", new { @class = "form-control", @style = "text-transform:uppercase" })
+                @Html.ValidationMessageFor(d => d.Gender, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-lg-12">
+                @Html.LabelFor(d => d.Comments)
+                @Html.TextBoxFor(d => d.Comments, "", new { @class = "form-control", @style = "text-transform:uppercase" })
+                @Html.ValidationMessageFor(d => d.Comments, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-lg-12">
+                @Html.LabelFor(d => d.GradeId)
+                @Html.TextBoxFor(d => d.GradeId, "", new { @class = "form-control", @style = "text-transform:uppercase" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-lg-12" style="text-align:right;">
+                <a href="~/Student/" class="btn btn-warning btn-sm">
+                    <i class="fa-solid fa-xmark"></i>
+                    Cancelar
+                </a>
+                <button type="submit" class="btn btn-primary btn-sm">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    Guardar
+                </button>
+
+            </div>
+        </div>
+    </div>
+}
